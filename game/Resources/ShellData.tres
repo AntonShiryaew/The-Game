@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="ShellData" format=3 uid="uid://ik41xd3fqvt4"]
+
+[ext_resource type="Script" uid="uid://brp13bimwxn3r" path="res://Resources/Scripts/Shell.gd" id="1_2van4"]
+
+[resource]
+script = ExtResource("1_2van4")
