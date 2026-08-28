@@ -1,1 +1,6 @@
+# obsidian ignores
 /game_notes/.obsidian
+
+# Godot 4+ specific ignores
+.godot/
+/android/
