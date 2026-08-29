@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bpiamxch07k6u"]
+
+[ext_resource type="Script" uid="uid://8lmr8tdaom12" path="res://TestScenes/test_resources/Scripts/button_attack.gd" id="1_v6g2m"]
+[ext_resource type="Script" uid="uid://km3x4fand1cp" path="res://TestScenes/test_resources/Scripts/button_heal.gd" id="2_tmpon"]
+[ext_resource type="Script" uid="uid://deigehbp428iu" path="res://TestScenes/test_resources/Scripts/Skeleton.gd" id="3_f68ue"]
+[ext_resource type="Script" uid="uid://doptwekbgo4c6" path="res://Resources/BaseResources/Scripts/Enemy.gd" id="4_x1bdn"]
+
+[sub_resource type="Resource" id="Resource_10xaf"]
+script = ExtResource("4_x1bdn")
+max_health = 50
+metadata/_custom_type_script = "uid://doptwekbgo4c6"
+
+[sub_resource type="Resource" id="Resource_50r1i"]
+script = ExtResource("4_x1bdn")
+max_health = 20
+metadata/_custom_type_script = "uid://doptwekbgo4c6"
+
+[node name="TestSceneForResourece" type="Node2D" unique_id=1491353724]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1920340101]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1715582682]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=128205604]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=2022189942 node_paths=PackedStringArray("enemies")]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Удар по противникам"
+script = ExtResource("1_v6g2m")
+enemies = [NodePath("../../../../Node"), NodePath("../../../../Node2")]
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1107894058 node_paths=PackedStringArray("enemy")]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Восстановить здоровье
+противника 1"
+script = ExtResource("2_tmpon")
+enemy = NodePath("../../../../Node")
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1658093461 node_paths=PackedStringArray("enemy")]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Восстановить здоровье
+противника 2"
+script = ExtResource("2_tmpon")
+enemy = NodePath("../../../../Node2")
+
+[node name="Node" type="Node" parent="." unique_id=1608866770]
+script = ExtResource("3_f68ue")
+enemy_data = SubResource("Resource_10xaf")
+current_health = 50
+
+[node name="Node2" type="Node" parent="." unique_id=514122601]
+script = ExtResource("3_f68ue")
+enemy_data = SubResource("Resource_50r1i")
+current_health = 10
