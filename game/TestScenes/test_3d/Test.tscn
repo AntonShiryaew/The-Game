@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ckoca1chtpswl"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_wyoo7"]
+
+[sub_resource type="Sky" id="Sky_ii66j"]
+sky_material = SubResource("PhysicalSkyMaterial_wyoo7")
+
+[sub_resource type="Environment" id="Environment_ptoaq"]
+background_mode = 2
+sky = SubResource("Sky_ii66j")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ptoaq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptoaq"]
+albedo_color = Color(0.5372549, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ptoaq"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrvd3"]
+albedo_color = Color(0.21568628, 0.3254902, 1, 1)
+
+[node name="Test" type="Node3D" unique_id=1414248453]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1132096828]
+transform = Transform3D(0.71277994, 0.090496995, -0.695525, 0, 0.9916413, 0.12902564, 0.7013877, -0.09196689, 0.70682204, -0.72622013, 0.28888345, 0.68198895)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=838708639]
+environment = SubResource("Environment_ptoaq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=864819762]
+transform = Transform3D(0.36856818, 0.21183366, -0.905143, 0.89290684, 0.19019406, 0.40809745, 0.25860158, -0.9586202, -0.119048245, 0, 2.642838, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=712347981]
+mesh = SubResource("PlaneMesh_ptoaq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=400920298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46975076, 0.27430254, -0.4573885)
+material_override = SubResource("StandardMaterial3D_ptoaq")
+mesh = SubResource("BoxMesh_ptoaq")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=260428868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26828146, 0.27430254, -0.4573885)
+material_override = SubResource("StandardMaterial3D_hrvd3")
+mesh = SubResource("BoxMesh_ptoaq")
